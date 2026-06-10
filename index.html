@@ -2,229 +2,118 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>AI CEO Dashboard</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, 'Hiragino Sans', sans-serif;
-      background: #07070d;
-      color: #e8e8f0;
-      min-height: 100vh;
-      padding: 16px;
-    }
-
-    .app { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-
-    /* ヘッダー */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      background: linear-gradient(135deg, #0d0d1a, #111128);
-      border: 1px solid #c9a84c44;
-      border-radius: 14px;
-    }
-    .logo { display: flex; align-items: center; gap: 10px; }
-    .logo-badge {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, #c9a84c, #e8c96a);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 800; color: #07070d;
-    }
-    .logo-text h1 { font-size: 16px; font-weight: 700; color: #fff; }
-    .logo-text p  { font-size: 10px; color: #66667a; margin-top: 1px; }
-    .header-date  { font-size: 11px; color: #66667a; text-align: right; }
-
-    /* セクションタイトル */
-    .section-title {
-      font-size: 10px;
-      color: #66667a;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    /* カード共通 */
-    .card {
-      background: #0d0d1a;
-      border: 1px solid #1e1e3a;
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    /* 今日やること */
-    .task-list { display: flex; flex-direction: column; gap: 8px; }
-
-    .task-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      background: #13132a;
-      border-radius: 10px;
-      border-left: 3px solid transparent;
-    }
-    .task-item.red    { border-left-color: #f05252; }
-    .task-item.yellow { border-left-color: #c9a84c; }
-    .task-item.green  { border-left-color: #4caf82; }
-
-    .task-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .task-item.red    .task-dot { background: #f05252; }
-    .task-item.yellow .task-dot { background: #c9a84c; }
-    .task-item.green  .task-dot { background: #4caf82; }
-
-    .task-text { font-size: 13px; color: #d8d8f0; line-height: 1.4; }
-
-    /* カウントダウン */
-    .event-list { display: flex; flex-direction: column; gap: 8px; }
-
-    .event-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      background: #13132a;
-      border-radius: 10px;
-    }
-    .event-icon { font-size: 20px; flex-shrink: 0; }
-    .event-info { flex: 1; }
-    .event-label { font-size: 12px; color: #d8d8f0; }
-    .event-date  { font-size: 10px; color: #66667a; margin-top: 2px; }
-    .event-days {
-      font-size: 18px;
-      font-weight: 800;
-      color: #c9a84c;
-      flex-shrink: 0;
-    }
-    .event-days span { font-size: 10px; font-weight: 400; color: #66667a; }
-
-    /* 事業ステータス */
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    .project-item {
-      padding: 10px 12px;
-      background: #13132a;
-      border-radius: 10px;
-    }
-    .project-name   { font-size: 11px; color: #88889a; margin-bottom: 4px; }
-    .project-status {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 20px;
-      display: inline-block;
-    }
-    .project-status.yellow { background: #c9a84c22; color: #c9a84c; }
-    .project-status.green  { background: #4caf8222; color: #4caf82; }
-    .project-status.gray   { background: #55556622; color: #888899; }
-    .project-status.red    { background: #f0525222; color: #f05252; }
-
-    /* 更新日時 */
-    .updated { text-align: center; font-size: 10px; color: #44445a; padding: 4px 0; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI CEO — 安部社長 経営コックピット</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
 
+    <!-- ヘッダー -->
     <header>
-      <div class="logo">
-        <div class="logo-badge">CEO</div>
-        <div class="logo-text">
-          <h1>AI CEO</h1>
-          <p>安部社長 経営コックピット</p>
+      <div class="header-left">
+        <div class="logo-mark">CEO</div>
+        <div>
+          <h1>AI CEO <span class="header-sub">経営コックピット</span></h1>
+          <p class="header-tagline">安部社長専属 経営参謀システム</p>
         </div>
       </div>
-      <div class="header-date" id="header-date"></div>
+      <div class="header-right">
+        <div class="status-dot"></div>
+        <span id="current-date"></span>
+      </div>
     </header>
 
-    <!-- 今日やること -->
-    <div class="card">
-      <div class="section-title">📋 今日やること</div>
-      <div class="task-list" id="task-list">
-        <div style="color:#44445a;font-size:13px;">読み込み中...</div>
+    <!-- KPIメトリクス -->
+    <section class="metrics">
+      <div class="metric-card">
+        <div class="metric-label">今週の重点案件</div>
+        <div class="metric-value" id="metric-focus">向津具マラソン遠征</div>
       </div>
-    </div>
+      <div class="metric-card">
+        <div class="metric-label">今月 売上目標達成率</div>
+        <div class="metric-value" id="metric-sales">— %</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">進行中プロジェクト</div>
+        <div class="metric-value" id="metric-projects">3</div>
+      </div>
+    </section>
 
-    <!-- イベントカウントダウン -->
-    <div class="card">
-      <div class="section-title">📅 直近のイベント</div>
-      <div class="event-list" id="event-list"></div>
-    </div>
+    <!-- 戦略エリア -->
+    <section class="strategy-grid">
 
-    <!-- 事業ステータス -->
-    <div class="card">
-      <div class="section-title">🚀 事業ステータス</div>
-      <div class="project-grid" id="project-grid"></div>
-    </div>
+      <!-- ① メインビジネス戦略 -->
+      <div class="strategy-card" data-color="blue">
+        <div class="card-header">
+          <span class="card-icon">📈</span>
+          <div>
+            <div class="card-title">メインビジネス戦略</div>
+            <div class="card-sub">株式会社キフネ</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="updated" id="updated"></div>
+      <!-- ② SkyStage戦略 -->
+      <div class="strategy-card" data-color="teal">
+        <div class="card-header">
+          <span class="card-icon">🚁</span>
+          <div>
+            <div class="card-title">SkyStage戦略</div>
+            <div class="card-sub">ドローン・映像事業</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ③ Oh!アベチャンネル戦略 -->
+      <div class="strategy-card" data-color="red">
+        <div class="card-header">
+          <span class="card-icon">🎥</span>
+          <div>
+            <div class="card-title">Oh!アベチャンネル戦略</div>
+            <div class="card-sub">YouTube収益化</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ④ 新規事業 -->
+      <div class="strategy-card" data-color="purple">
+        <div class="card-header">
+          <span class="card-icon">💰</span>
+          <div>
+            <div class="card-title">新規事業</div>
+            <div class="card-sub">収益多角化</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑤ 今週の優先順位 -->
+      <div class="strategy-card" data-color="gold">
+        <div class="card-header">
+          <span class="card-icon">📅</span>
+          <div>
+            <div class="card-title">今週の優先順位</div>
+            <div class="card-sub">時間と集中の最適化</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑥ 経営ダッシュボード -->
+      <div class="strategy-card" data-color="slate">
+        <div class="card-header">
+          <span class="card-icon">📊</span>
+          <div>
+            <div class="card-title">経営ダッシュボード</div>
+            <div class="card-sub">全体状況の把握</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
   </div>
 
-  <script>
-    // 日付表示
-    const now = new Date();
-    document.getElementById('header-date').innerHTML =
-      now.toLocaleDateString('ja-JP', { month: 'long', day: 'numeric', weekday: 'short' });
-
-    function daysDiff(dateStr) {
-      const target = new Date(dateStr);
-      target.setHours(0, 0, 0, 0);
-      const today  = new Date();
-      today.setHours(0, 0, 0, 0);
-      return Math.round((target - today) / 86400000);
-    }
-
-    fetch('data.json?v=' + Date.now())
-      .then(r => r.json())
-      .then(data => {
-
-        // 今日やること
-        const taskList = document.getElementById('task-list');
-        taskList.innerHTML = data.today.map(t => `
-          <div class="task-item ${t.priority}">
-            <div class="task-dot"></div>
-            <div class="task-text">${t.text}</div>
-          </div>`).join('');
-
-        // カウントダウン
-        const eventList = document.getElementById('event-list');
-        eventList.innerHTML = data.events.map(e => {
-          const d = daysDiff(e.date);
-          const label = d === 0 ? '今日！' : d < 0 ? `${Math.abs(d)}日前` : `あと${d}日`;
-          return `
-            <div class="event-item">
-              <div class="event-icon">${e.icon}</div>
-              <div class="event-info">
-                <div class="event-label">${e.label}</div>
-                <div class="event-date">${e.date}</div>
-              </div>
-              <div class="event-days">${label.replace('あと','').replace('日','')}<span>${d > 0 ? '日前' : d === 0 ? '' : ''}</span>
-                ${d > 0 ? `<div style="font-size:10px;color:#66667a;font-weight:400">あと</div>` : ''}
-              </div>
-            </div>`;
-        }).join('');
-
-        // 事業ステータス
-        const projectGrid = document.getElementById('project-grid');
-        projectGrid.innerHTML = data.projects.map(p => `
-          <div class="project-item">
-            <div class="project-name">${p.name}</div>
-            <div class="project-status ${p.color}">${p.status}</div>
-          </div>`).join('');
-
-        document.getElementById('updated').textContent = `最終更新: ${data.updated}`;
-      });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
