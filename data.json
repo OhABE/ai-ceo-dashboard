@@ -1,0 +1,20 @@
+{
+  "updated": "2026-06-10",
+  "today": [
+    { "priority": "red",    "text": "向津具マラソン 出発準備確認（6/13出発）" },
+    { "priority": "yellow", "text": "バイクスタンプ 残り枚数確認" },
+    { "priority": "green",  "text": "祇園動画 編集進める" }
+  ],
+  "events": [
+    { "date": "2026-06-13", "label": "萩 前泊出発",          "icon": "🏍️" },
+    { "date": "2026-06-14", "label": "向津具ダブルマラソン84km", "icon": "🏃" },
+    { "date": "2026-06-28", "label": "海の中道あおぞらマラソン", "icon": "🏃" },
+    { "date": "2026-07-23", "label": "戸畑祇園大山笠 本番",    "icon": "🎏" }
+  ],
+  "projects": [
+    { "name": "LINEスタンプ第3弾", "status": "生成中",  "color": "yellow" },
+    { "name": "LINE絵文字",        "status": "準備済み", "color": "yellow" },
+    { "name": "Oh!アベチャンネル",  "status": "編集中",  "color": "yellow" },
+    { "name": "SkyStage",         "status": "待機中",  "color": "gray"   }
+  ]
+}
