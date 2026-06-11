@@ -3,156 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI CEO — 安部社長 経営コックピット</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="style.css?v=20260610b">
+  <title>安部 司令室</title>
+  <link rel="stylesheet" href="style.css?v=20260611c">
 </head>
 <body>
   <div class="app">
 
-    <!-- ヘッダー -->
     <header>
-      <div class="header-left">
-        <div class="logo-mark">CEO</div>
-        <div>
-          <h1>AI CEO <span class="header-sub">経営コックピット</span></h1>
-          <p class="header-tagline">安部社長専属 経営参謀システム</p>
-        </div>
-      </div>
-      <div class="header-right">
-        <div class="status-dot"></div>
-        <span id="current-date"></span>
+      <div class="logo">CEO</div>
+      <div class="header-info">
+        <div class="header-title">安部 司令室</div>
+        <div class="header-date" id="current-date"></div>
       </div>
     </header>
 
-    <!-- KPIメトリクス -->
-    <section class="metrics">
-      <div class="metric-card">
-        <div class="metric-label">今週の重点案件</div>
-        <div class="metric-value" id="metric-focus">向津具マラソン遠征</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">今月 売上目標達成率</div>
-        <div class="metric-value" id="metric-sales">— %</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">進行中プロジェクト</div>
-        <div class="metric-value" id="metric-projects">3</div>
-      </div>
-    </section>
+    <div class="cards">
 
-    <!-- 戦略エリア -->
-    <section class="strategy-grid">
-
-      <!-- ① メインビジネス戦略 -->
-      <div class="strategy-card" data-color="blue">
-        <div class="card-header">
-          <span class="card-icon">📈</span>
-          <div>
-            <div class="card-title">メインビジネス戦略</div>
-            <div class="card-sub">株式会社キフネ</div>
-          </div>
+      <div class="card" data-cat="channel">
+        <div class="card-top">
+          <span class="cat-icon">🎥</span>
+          <span class="cat-title">Oh!アベチャンネル</span>
         </div>
-        <div class="card-buttons">
-          <button class="sub-btn">売上向上</button>
-          <button class="sub-btn">営業活動</button>
-          <button class="sub-btn">訪問計画</button>
-          <button class="sub-btn">提案商品の検討</button>
+        <div class="todo-area">
+          <div class="todo-label">今やること</div>
+          <div class="todo-text" id="todo-channel" data-key="todo-channel">タップして入力...</div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-ai" data-cat="channel">🤖 AI相談</button>
+          <button class="btn btn-record" data-cat="channel">📝 記録</button>
+          <button class="btn btn-memo" data-cat="channel">📂 メモ</button>
         </div>
       </div>
 
-      <!-- ② SkyStage戦略 -->
-      <div class="strategy-card" data-color="teal">
-        <div class="card-header">
-          <span class="card-icon">🚁</span>
-          <div>
-            <div class="card-title">SkyStage戦略</div>
-            <div class="card-sub">ドローン・映像事業</div>
-          </div>
+      <div class="card" data-cat="work">
+        <div class="card-top">
+          <span class="cat-icon">📈</span>
+          <span class="cat-title">仕事・営業</span>
         </div>
-        <div class="card-buttons">
-          <button class="sub-btn">ドローン事業</button>
-          <button class="sub-btn">映像制作</button>
-          <button class="sub-btn">案件獲得</button>
-          <button class="sub-btn">営業支援</button>
+        <div class="todo-area">
+          <div class="todo-label">今やること</div>
+          <div class="todo-text" id="todo-work" data-key="todo-work">タップして入力...</div>
         </div>
-      </div>
-
-      <!-- ③ Oh!アベチャンネル戦略 -->
-      <div class="strategy-card" data-color="red">
-        <div class="card-header">
-          <span class="card-icon">🎥</span>
-          <div>
-            <div class="card-title">Oh!アベチャンネル戦略</div>
-            <div class="card-sub">YouTube収益化</div>
-          </div>
-        </div>
-        <div class="card-buttons">
-          <button class="sub-btn">動画企画</button>
-          <button class="sub-btn">ライブ企画</button>
-          <button class="sub-btn">登録者増加</button>
-          <button class="sub-btn">タイトル・概要欄</button>
+        <div class="card-actions">
+          <button class="btn btn-ai" data-cat="work">🤖 AI相談</button>
+          <button class="btn btn-record" data-cat="work">📝 記録</button>
+          <button class="btn btn-memo" data-cat="work">📂 メモ</button>
         </div>
       </div>
 
-      <!-- ④ 新規事業 -->
-      <div class="strategy-card" data-color="purple">
-        <div class="card-header">
-          <span class="card-icon">💰</span>
-          <div>
-            <div class="card-title">新規事業</div>
-            <div class="card-sub">収益多角化</div>
-          </div>
+      <div class="card" data-cat="side">
+        <div class="card-top">
+          <span class="cat-icon">🚁</span>
+          <span class="cat-title">副業・依頼</span>
         </div>
-        <div class="card-buttons">
-          <button class="sub-btn">アイデア副業</button>
-          <button class="sub-btn">AI活用</button>
-          <button class="sub-btn">デジタル商品</button>
-          <button class="sub-btn">新サービス</button>
+        <div class="todo-area">
+          <div class="todo-label">今やること</div>
+          <div class="todo-text" id="todo-side" data-key="todo-side">タップして入力...</div>
         </div>
-      </div>
-
-      <!-- ⑤ 今週の優先順位 -->
-      <div class="strategy-card" data-color="gold">
-        <div class="card-header">
-          <span class="card-icon">📅</span>
-          <div>
-            <div class="card-title">今週の優先順位</div>
-            <div class="card-sub">時間と集中の最適化</div>
-          </div>
-        </div>
-        <div class="card-buttons">
-          <button class="sub-btn">今日やること</button>
-          <button class="sub-btn">今週やること</button>
-          <button class="sub-btn">後回しにすること</button>
-          <button class="sub-btn">🌅 朝のブリーフィング</button>
+        <div class="card-actions">
+          <button class="btn btn-ai" data-cat="side">🤖 AI相談</button>
+          <button class="btn btn-record" data-cat="side">📝 記録</button>
+          <button class="btn btn-memo" data-cat="side">📂 メモ</button>
         </div>
       </div>
 
-      <!-- ⑥ 経営ダッシュボード -->
-      <div class="strategy-card" data-color="slate">
-        <div class="card-header">
-          <span class="card-icon">📊</span>
-          <div>
-            <div class="card-title">経営ダッシュボード</div>
-            <div class="card-sub">全体状況の把握</div>
-          </div>
+      <div class="card" data-cat="appdev">
+        <div class="card-top">
+          <span class="cat-icon">💻</span>
+          <span class="cat-title">アプリ開発</span>
         </div>
-        <div class="card-buttons">
-          <button class="sub-btn">全体状況確認</button>
-          <button class="sub-btn">収益レポート</button>
-          <button class="sub-btn">週次レポート</button>
-          <button class="sub-btn">3ヶ月戦略</button>
+        <div class="todo-area">
+          <div class="todo-label">今やること</div>
+          <div class="todo-text" id="todo-appdev" data-key="todo-appdev">タップして入力...</div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-ai" data-cat="appdev">🤖 AI相談</button>
+          <button class="btn btn-record" data-cat="appdev">📝 記録</button>
+          <button class="btn btn-memo" data-cat="appdev">📂 メモ</button>
         </div>
       </div>
 
-    </section>
-
-
+    </div>
   </div>
 
-  <script src="app.js?v=20260610b"></script>
+  <!-- 今やること編集モーダル -->
+  <div class="modal" id="edit-modal">
+    <div class="modal-box">
+      <div class="modal-title">今やることを編集</div>
+      <textarea id="edit-text" rows="3" placeholder="今やることを入力..."></textarea>
+      <div class="modal-btns">
+        <button id="edit-save">保存</button>
+        <button id="edit-cancel" class="btn-sub">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 記録モーダル -->
+  <div class="modal" id="record-modal">
+    <div class="modal-box">
+      <div class="modal-title" id="record-title">記録する</div>
+      <textarea id="record-text" rows="4" placeholder="メモを入力..."></textarea>
+      <div class="modal-btns">
+        <button id="record-save">保存</button>
+        <button id="record-cancel" class="btn-sub">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 過去メモモーダル -->
+  <div class="modal" id="memo-modal">
+    <div class="modal-box">
+      <div class="modal-title" id="memo-title">過去メモ</div>
+      <div id="memo-list"></div>
+      <div class="modal-btns">
+        <button id="memo-close" class="btn-sub">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- トースト通知 -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js?v=20260611c"></script>
 </body>
 </html>
